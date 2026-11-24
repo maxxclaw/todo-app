@@ -27,7 +27,9 @@ function render() {
 
 form.onsubmit = (e) => {
   e.preventDefault();
-  todos.push({ text: input.value.trim(), done: false });
+  const text = input.value.trim();
+  if (!text) return;
+  todos.push({ text, done: false });
   input.value = "";
   save();
   render();
